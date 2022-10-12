@@ -1,5 +1,5 @@
 import imagen from '../../public/img/nosotros.jpg'
-import styles from '~/styles/nosotros.css'
+import styles from '../styles/nosotros.css'
 
 export function meta() {
   return (
@@ -10,7 +10,7 @@ export function meta() {
   )
 }
 
-export function Links() {
+export function links() {
   return [
     {
       rel: 'stylesheet',
