@@ -1,12 +1,28 @@
+import imagen from '../../public/img/nosotros.jpg'
+import styles from '~/styles/nosotros.css'
+
 export function meta() {
   return (
     {
-      title: 'GuitarLa - Nosostros'
+      title: 'GuitarLa - Nosostros',
+      description: 'Venta de guitarras, blog de música y más'
     }
   )
 }
 
-import imagen from '../../public/img/nosotros.jpg'
+export function Links() {
+  return[
+    {
+      rel: 'stylesheet',
+      href: styles
+    },
+    {
+      rel: 'preload',
+      href: imagen,
+      as: 'image'
+    }
+  ]
+}
 
 function Nosotros() {
   return (

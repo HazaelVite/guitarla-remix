@@ -116,23 +116,20 @@ main {
   gap: 2rem;
 }
 
+.footer .navegacion a,
 .footer .copyright {
-  text-align: center;
   color: var(--white);
   font-size: 2.2rem;
-}
-
-.footer .navegacion a {
-  color: var(--white);
-  font-size: 2.8rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+.footer .copyright {
+  text-align: center;
 }
 
 @media(min-width: 768px) {
   .footer .navegacion {
     flex-direction: row;
   }
-  
 }
-
