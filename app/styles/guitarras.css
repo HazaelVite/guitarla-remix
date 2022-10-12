@@ -50,21 +50,3 @@
   margin: 0;
 }
 
-.guitarra .enlace {
-  margin-top: 2rem;
-  padding: .5rem;
-  display: block;
-  background-color: var(--black);
-  color: var(--white);
-  text-decoration: none;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: 900;
-  transition-property: background-color;
-  transition-duration: 400ms;
-}
-
-.guitarra .enlace:hover {
-  background-color: var(--primary);
-}

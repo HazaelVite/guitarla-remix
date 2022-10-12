@@ -148,3 +148,23 @@ main {
   text-decoration: none;
   font-size: 1.8rem;
 }
+
+.enlace {
+  margin-top: 2rem;
+  padding: 1rem;
+  display: block;
+  background-color: var(--black);
+  color: var(--white);
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition-property: background-color;
+  transition-duration: 400ms;
+  border-radius: .5rem;
+}
+
+.enlace:hover {
+  background-color: var(--primary);
+}
