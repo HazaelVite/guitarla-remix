@@ -4,6 +4,12 @@ import { useLoaderData } from "@remix-run/react"
 import { getGuitarra } from "~/models/guitarras.server"
 import styles from '~/styles/guitarras.css'
 
+export function meta({data}) {
+  return {
+    title: `GuitarLA - ${data.data[0]?.attributes.nombre ? data.data[0]?.attributes.nombre : 'No encontrado'}`
+  }
+}
+
 export function links() {
   return [
     {
