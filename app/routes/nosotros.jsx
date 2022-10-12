@@ -11,7 +11,7 @@ export function meta() {
 }
 
 export function Links() {
-  return[
+  return [
     {
       rel: 'stylesheet',
       href: styles
