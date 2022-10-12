@@ -1,9 +1,11 @@
 import {
   Links,
+  Link,
   Meta,
   Outlet,
   Scripts, // Optimizaciones de remix
-  LiveReload, // Para no recargar la pagina
+  LiveReload,
+  useCatch, // Para no recargar la pagina
 } from "@remix-run/react"
 
 import styles from "./styles/index.css"
@@ -67,9 +69,29 @@ function Document({ children }) {
         <Header />
         {children}
         <Footer />
+        <Scripts />
+        <LiveReload />
       </body>
-      <Scripts />
-      <LiveReload />
     </html>
+  )
+}
+
+// Componentes especiales de Remix para el manejo de errores
+export function CatchBoundary() {
+  const error = useCatch()
+  return (
+    <Document>
+      <p className="error">{error.status} {error.statusText}</p>
+      <Link className="error-enlace" to="/" >Volver a la pagina principal</Link>
+    </Document>
+  )
+}
+
+export function ErrorBoundary({error}) {
+  return (
+    <Document>
+      <p className="error">{error.status} {error.statusText}</p>
+      <Link className="error-enlace" to="/" >Volver a la pagina principal</Link>
+    </Document>
   )
 }
