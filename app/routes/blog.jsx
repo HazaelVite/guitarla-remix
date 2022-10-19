@@ -1,17 +1,5 @@
-import { useLoaderData } from "@remix-run/react"
-import ListadoPosts from "~/components/listadoPosts"
-import Post from "~/components/post"
-import { getPosts } from "~/models/posts.server"
+import { Outlet } from "@remix-run/react"
 import styles from '~/styles/blog.css'
-
-export function meta() {
-  return (
-    {
-      title: 'GuitarLA - Nuestro Blog',
-      description: 'Blog de música y venta de guitarras'
-    }
-  )
-}
 
 export function links() {
   return [
@@ -22,16 +10,10 @@ export function links() {
   ]
 }
 
-export async function loader() {
-  const posts = await getPosts()
-  return posts.data
-}
-
 function Blog() {
-  const posts = useLoaderData()
   return (
     <main className="contenedor">
-      <ListadoPosts posts={posts} />
+      <Outlet />
     </main>
   )
 }
