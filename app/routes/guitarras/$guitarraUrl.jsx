@@ -1,5 +1,6 @@
 // Componente para hacer rutas dinamicas
 // Siempre iniciar el nombre del archivo con $
+import { useState } from "react"
 import { useLoaderData } from "@remix-run/react"
 import { getGuitarra } from "~/models/guitarras.server"
 
@@ -28,6 +29,8 @@ export function meta({ data }) {
 }
 
 function Guitarra() {
+  const [cantidad, setCantidad] = useState(0);
+
   const guitarra = useLoaderData()
 
   const { nombre, descripcion, imagen, precio } = guitarra.data[0]?.attributes
@@ -44,7 +47,11 @@ function Guitarra() {
         <form className="formulario">
           <label htmlFor="cantidad">Cantidad</label>
 
-          <select name="cantidad" id="cantidad">
+          <select
+            name="cantidad"
+            id="cantidad"
+            onChange={e => setCantidad(parseInt(e.target.value))}
+          >
             <option value="">-- Seleccione --</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -53,7 +60,7 @@ function Guitarra() {
             <option value="5">5</option>
           </select>
 
-          <input type="submit"  value="Agregar al carrito" />
+          <input type="submit" value="Agregar al carrito" />
         </form>
       </div>
     </div>
