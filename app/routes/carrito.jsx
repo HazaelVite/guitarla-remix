@@ -12,7 +12,7 @@ export function links() {
 
 export function meta() {
   return {
-    title: 'GuitarLA - Carrito de Compras', 
+    title: 'GuitarLA - Carrito de Compras',
     description: 'Venta de guitarras, musica, blog, carrito de compras, tienda'
   }
 }
@@ -28,14 +28,21 @@ export default function Carrito() {
         <div className="carrito">
           <h2>Articulos</h2>
           {carrito.length === 0 ? 'Carrito Vacio' : (
-            carrito.map( producto => (
+            carrito.map(producto => (
               <div key={producto.id} className="producto">
                 <div>
                   <img src={producto.img} alt={producto.nombre} />
                 </div>
                 <div>
-                  <p className="nombre">{ producto.nombre }</p>
-                  <p>Cantidad: {producto.cantidad}</p>
+                  <p className="nombre">{producto.nombre}</p>
+                  <p>Cantidad:</p>
+                  <select value={producto.cantidad} className="cantidad">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
                   <p className="precio">$ <span>{producto.precio}</span></p>
                   <p className="subtotal">Subtotal: $ <span>{producto.cantidad * producto.precio}</span></p>
                 </div>
