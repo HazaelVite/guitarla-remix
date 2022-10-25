@@ -1,7 +1,7 @@
 // Componente para hacer rutas dinamicas
 // Siempre iniciar el nombre del archivo con $
 import { useState } from "react"
-import { useLoaderData } from "@remix-run/react"
+import { useLoaderData, useOutletContext } from "@remix-run/react"
 import { getGuitarra } from "~/models/guitarras.server"
 
 export async function loader({ params }) {
@@ -29,10 +29,11 @@ export function meta({ data }) {
 }
 
 function Guitarra() {
+
+  const {agregarCarrito} = useOutletContext();
+  
   const [cantidad, setCantidad] = useState(0);
-
   const guitarra = useLoaderData()
-
   const { nombre, descripcion, imagen, precio } = guitarra.data[0]?.attributes
 
   const handleSubmit = e => {
@@ -50,7 +51,7 @@ function Guitarra() {
       cantidad
     }
 
-    console.log(guitarraSeleccionada);
+    agregarCarrito(guitarraSeleccionada)
   }
 
   return (
