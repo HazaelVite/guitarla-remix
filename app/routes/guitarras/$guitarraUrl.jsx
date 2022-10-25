@@ -35,6 +35,24 @@ function Guitarra() {
 
   const { nombre, descripcion, imagen, precio } = guitarra.data[0]?.attributes
 
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if(cantidad < 1) {
+      alert('Debes seleccionar una cantidad');
+    }
+    // Almacenar todo en un objeto
+    const guitarraSeleccionada = {
+      id: guitarra.data[0].id,
+      img: imagen.data.attributes.url,
+      nombre,
+      precio,
+      cantidad
+    }
+
+    console.log(guitarraSeleccionada);
+  }
+
   return (
     <div className="guitarra">
       <img src={imagen.data.attributes.url} alt={nombre} className="imagen" />
@@ -44,7 +62,7 @@ function Guitarra() {
           {descripcion}
         </p>
         <p className="precio">$ {precio}</p>
-        <form className="formulario">
+        <form className="formulario" onSubmit={handleSubmit}>
           <label htmlFor="cantidad">Cantidad</label>
 
           <select
