@@ -53,7 +53,21 @@ export default function App() {
   const [carrito , setCarrito] = useState([])
 
   const agregarCarrito = guitarra => {
-    setCarrito([...carrito, guitarra])
+    if(carrito.some(guitarraState => guitarraState.id === guitarra.id)) {
+      // Iterar sobre el arreglo e identificar el elemento duplicado
+      const carritoActualizado = carrito.map( guitarraState => {
+        if(guitarraState.id === guitarra.id) {
+          // Reescribir la cantidad
+          guitarraState.cantidad = guitarra.cantidad
+        }
+        return guitarraState
+      })
+      // Agregar al carrito
+      setCarrito(carritoActualizado)
+    } else {
+      // Registro nuevo
+      setCarrito([...carrito, guitarra])
+    }
 
   }
   return (
