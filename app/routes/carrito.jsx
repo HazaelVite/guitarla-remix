@@ -18,7 +18,7 @@ export function meta() {
 }
 
 export default function Carrito() {
-  const { carrito } = useOutletContext()
+  const { carrito, actualizarCantidad } = useOutletContext()
   console.log(carrito);
   return (
     <main className="contenedor">
@@ -36,7 +36,14 @@ export default function Carrito() {
                 <div>
                   <p className="nombre">{producto.nombre}</p>
                   <p>Cantidad:</p>
-                  <select value={producto.cantidad} className="cantidad">
+                  <select 
+                  value={producto.cantidad}
+                  onChange={e => actualizarCantidad({
+                    cantidad: +e.target.value,
+                    id: producto.id
+                  })} 
+                  className="cantidad"
+                  >
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
